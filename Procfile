@@ -1,1 +1,1 @@
-web: gunicorn cex.heroku.gettingstarted.wsgi --log-file -
+web: gunicorn --pythonpath cex/heroku gettingstarted.wsgi --log-file -
