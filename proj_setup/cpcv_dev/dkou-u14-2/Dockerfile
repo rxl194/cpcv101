@@ -17,10 +17,16 @@ ADD build_tesseract.bash /build_tesseract.bash
 RUN /bin/bash  /build_tesseract.bash
 RUN rm -rf /build_tesseract.bash
 
-
 # tesseract -v
 # tesseract 3.04.00
 # leptonica-1.71
 #  libjpeg 8d : libpng 1.2.50 : libtiff 4.0.3 : zlib 1.2.8
+
+# Install OpenCV3.1.0
+ADD build_ocv3.1.0.bash /build_ocv3.1.0.bash
+RUN /bin/bash /build_ocv3.1.0.bash
+RUN rm -rf /build_ocv3.1.0.bash
+
+
 
 
