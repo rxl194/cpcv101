@@ -26,11 +26,6 @@ RUN rm -rf /build_tesseract.bash
 # leptonica-1.71
 #  libjpeg 8d : libpng 1.2.50 : libtiff 4.0.3 : zlib 1.2.8
 
-# Install OpenCV3.1.0
-# ADD build_ocv3.1.0.bash /build_ocv3.1.0.bash
-# RUN /bin/bash /build_ocv3.1.0.bash
-# RUN rm -rf /build_ocv3.1.0.bash
-
 
 
 
