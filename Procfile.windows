@@ -1,2 +1,2 @@
 #web:  python cex/heroku/manage.py runserver 0.0.0.0:8000
-web:  python cex/Django/django_bookmarks/manage.py runserver 0.0.0.0:8000
+web:  python cex/Django/django_tweets/manage.py runserver 0.0.0.0:8000
