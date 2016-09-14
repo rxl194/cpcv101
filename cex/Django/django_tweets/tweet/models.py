@@ -13,3 +13,6 @@ class Tweet(models.Model):
   created_date = models.DateTimeField(auto_now_add=True)
   country = models.CharField(max_length=30, default="Global")
   is_active = models.BooleanField(default=True)
+  
+  def __unicode__(self):
+    return self.text  
