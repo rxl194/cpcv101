@@ -4,8 +4,8 @@ from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
-from myproject.myapp.models import Document
-from myproject.myapp.forms import DocumentForm
+from imgnailapp.models import Document
+from imgnailapp.forms import DocumentForm
 
 
 def list(request):
