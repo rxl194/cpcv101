@@ -56,6 +56,19 @@ http://127.0.0.1:8000/admin
   one with hashtag, and one without hashtag
 
 http://localhost:8000/user/ratancs/
+
+  How are Djano, Rantacs is in!
+  Hello, #Django! you are has awesome!
+  First post from my Tweet
+  First Post from my #django_learning acc!!
+  First Post from my #django_learning acc!!
   
+http://localhost:8000/hashTag/django_learning/  
+
+MyTweets
+
+  First Post from my #django_learning acc!!
+  First Post from my #django_learning acc!!
   
+
 

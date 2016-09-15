@@ -18,11 +18,11 @@ class Tweet(models.Model):
     return self.text  
 
 class HashTag(models.Model):
-    """
-    	HashTag model
-    """
-    name = models.CharField(max_length=64, unique=True)
-    tweet = models.ManyToManyField(Tweet)
+  """
+    HashTag model
+  """
+  name = models.CharField(max_length=64, unique=True)
+  tweet = models.ManyToManyField(Tweet)
 
-    def __unicode__(self):
-        return self.name    
+  def __unicode__(self):
+    return self.name    
