@@ -19,9 +19,9 @@ from tweet.views import Index, Profile
 
 admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = [
   url(r'^$', Index.as_view()),
   url(r'^user/(\w+)/$', Profile.as_view()),  
   url(r'^admin/', include(admin.site.urls)),
-)
+]
 

@@ -28,6 +28,10 @@ $ python manage.py dbshell
 sqlite> .databases
 sqlite> .quit
 
+/**************************
+** For Project: django_tweets
+***************************/
+
 // startproject <proj> [dir]
 $ django-admin.py startproject c_django_tweets django_tweets
 
@@ -37,9 +41,21 @@ $ python manage.py sqlmigrate user_profile 0001
 $ python manage.py migrate user_profile 
 $ python manage.py showmigrations tweet
 $ python manage.py sqlmigrate tweet 0002
+
+// How to build and run the django_tweets proj:
+$ python manage.py migrate
 $ python manage.py createsuperuser --username=rxl194 --email=rxl194@example.com <rxl168bc>
+$ python manage.py runserver
 
 http://127.0.0.1:8000/admin
 
-Add user: ratancs, ratancs@live.com, ab1234cd
+// Can add user when adding new tweet 
+// ( make sure users added in USER_PROFILE models )
+1. Add user: ratancs, ratancs@live.com, ab1234cd
+2. compose new tweet by the new user:
+  one with hashtag, and one without hashtag
+
+http://localhost:8000/user/ratancs/
+  
+  
 

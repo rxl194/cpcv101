@@ -2,6 +2,7 @@ from django.views.generic import View
 from django.shortcuts import render
 from user_profile.models import User
 from models import Tweet
+from tweet.forms import TweetForm, SearchForm, SearchHashTagForm
 
 class Index(View):
   def get(self, request): 
@@ -15,7 +16,9 @@ class Profile(View):
     params = dict()
     user = User.objects.get(username=username)
     tweets = Tweet.objects.filter(user=user)
+    form = TweetForm(initial={'country': 'Global'})
     params["tweets"] = tweets
     params["user"] = user
+    params["form"] = form
     return render(request, 'profile.html', params)
  
