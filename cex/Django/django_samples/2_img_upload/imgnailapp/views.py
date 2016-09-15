@@ -30,3 +30,8 @@ def list(request):
         'list.html',
         {'documents': documents, 'form': form}
     )
+
+def index(request):
+  return render(
+    request,
+    'index.html')

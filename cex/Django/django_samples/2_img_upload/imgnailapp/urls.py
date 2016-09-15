@@ -3,5 +3,6 @@ from django.conf.urls import url
 from imgnailapp.views import list
 
 urlpatterns = [
-    url(r'^list/$', list, name='list')
+  url(r'^$', list, name='list'),
+  url(r'^list/$', list, name='list'),
 ]
