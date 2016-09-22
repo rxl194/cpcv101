@@ -13,5 +13,6 @@ cmake -D CMAKE_INSTALL_PREFIX=/opt/ocv2.4.13 \
 make |& tee build.log
 make install; ldconfig
 cp lib/cv2.so /usr/local/lib/python2.7/dist-packages
+cp -p unix-install/opencv.pc /usr/lib/pkgconfig
 cd
 
