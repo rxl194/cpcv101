@@ -14,7 +14,7 @@ make |& tee build.log
 make install
 cp lib/cv2.so /usr/local/lib/python2.7/dist-packages
 cp -p unix-install/opencv.pc /usr/lib/pkgconfig
-checkinstall
+#checkinstall
 sh -c 'echo "/opt/ocv2.4.13/lib" > /etc/ld.so.conf.d/opencv.conf'
 ldconfig
 cd
