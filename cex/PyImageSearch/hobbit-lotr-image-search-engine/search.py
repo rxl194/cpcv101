@@ -3,7 +3,7 @@
 # website: http://www.pyimagesearch.com
 
 # USAGE
-# python search.py --dataset images --index index.cpickle
+# python search.py --dataset . --index index.cpickle
 
 # import the necessary packages
 from pyimagesearch.searcher import Searcher

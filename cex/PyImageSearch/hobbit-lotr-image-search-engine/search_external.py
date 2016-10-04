@@ -3,7 +3,7 @@
 # website: http://www.pyimagesearch.com
 
 # USAGE
-# python search_external.py --dataset images --index index.cpickle --query queries/rivendell-query.png
+# python search_external.py --dataset . --index index.cpickle --query queries/rivendell-query.png
 
 # import the necessary packages
 from pyimagesearch.rgbhistogram import RGBHistogram
