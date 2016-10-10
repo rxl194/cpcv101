@@ -105,6 +105,18 @@ $ python manage.py migrate
 $ python manage.py createsuperuser --username=rxl194 --email=rxl194@example.com <rxl168bc>
 $ python manage.py runserver
 
+// Heroku CLI
+$ heroku apps
+$ export HEROKU_APP='proj-id'
+$ heroku apps:info
+
+$ heroku run python manage.py shell
+>>>
+$ heroku run python manage.py migrate
+...
+$  heroku run python manage.py createsuperuser --username=rxl194 --email=rxl194@example.com
+
+
 
 
   
