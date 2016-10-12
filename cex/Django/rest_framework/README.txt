@@ -13,6 +13,10 @@ $ cd tutorial
 // Install Django and Django REST framework into the virtualenv
 //$ pip install django
 //$ pip install djangorestframework
+
+$ pip install coreapi
+$ pip install coreapi-cli
+
 $ django-admin.py --version
 
 //# Set up a new project with a single application
@@ -94,4 +98,11 @@ print(repr(serializer))
 
 
 
-
+$ coreapi
+$ coreapi get http://127.0.0.1:8000/
+$ coreapi action snippets list
+$ coreapi action snippets highlight --param pk=1
+$ coreapi credentials add 127.0.0.1 <username>:<password> --auth basic
+$ coreapi reload
+$ coreapi action snippets create --param title="Example" --param code="print('hello, world')
+$ coreapi action snippets destroy --param pk=3
