@@ -1,5 +1,6 @@
 
 $ http://www.django-rest-framework.org/tutorial
+$ https://github.com/tomchristie/rest-framework-tutorial
 
 /************************
 ** Quickstart
