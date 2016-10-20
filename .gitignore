@@ -2,3 +2,4 @@
 *.sqlite3
 *.tar
 .git
+*.oauth.cfg
