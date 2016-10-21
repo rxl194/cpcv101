@@ -37,3 +37,11 @@ class ImageCreateForm(forms.ModelForm):
         if commit:
             image.save()
         return image
+
+class ImageUploadForm(forms.ModelForm):
+
+    class Meta:
+        model = Image
+        fields = ('title', 'image', 'description')          
+
+            

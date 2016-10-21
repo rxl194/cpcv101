@@ -7,6 +7,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from common.decorators import ajax_required
 
 from .forms import ImageCreateForm
+from .forms import ImageUploadForm
 from .models import Image
 
 @login_required
@@ -34,6 +35,32 @@ def image_create(request):
                   'images/image/create.html',
                   {'section': 'images',
                    'form': form})
+                   
+@login_required
+def image_upload(request):  
+    if request.method == 'POST':
+        # form is sent
+        form = ImageUploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            # form data is valid
+            cd = form.cleaned_data
+            new_item = form.save(commit=False)
+
+            # assign current user to the item
+            new_item.user = request.user
+            new_item.save()
+            messages.success(request, 'Image added successfully')
+
+            # redirect to new created item detail view
+            return redirect(new_item.get_absolute_url())
+    else:
+        # build form with data provided by the bookmarklet via GET
+        form = ImageUploadForm(data=request.GET)
+
+    return render(request,
+                  'images/image/upload.html',
+                  {'section': 'images',
+                   'form': form})                 
                    
 def image_detail(request, id, slug):
     image = get_object_or_404(Image, id=id, slug=slug)
