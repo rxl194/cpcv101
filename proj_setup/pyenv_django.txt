@@ -1,0 +1,12 @@
+
+#alias act_django='source activate django_env'
+alias act_django='source activate django_bookmark_env'
+alias deact_django='source deactivate'
+alias conda_install='conda install -n django_bookmark_env'
+
+alias cpvs='python manage.py runserver 0.0.0.0:8000'
+
+# export PATH=/home/<user>/node-v6.6/bin:/opt/meanstack-3.2.9-0/miniconda2/bin:$PATH
+
+# added by Miniconda3 4.1.11 installer
+export PATH="/home/<user>/node-v6.6/bin:/home/<user>/miniconda3/bin:$PATH"
