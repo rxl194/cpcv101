@@ -1,4 +1,8 @@
 
+// Install venv
+$ conda -V
+$ conda create -n django_bookmark_env python 
+
 #alias act_django='source activate django_env'
 alias act_django='source activate django_bookmark_env'
 alias deact_django='source deactivate'
