@@ -1,9 +1,16 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
+from rest_framework import routers
 from . import views
+
+router = routers.DefaultRouter()
+router.register(r'users', views.UserViewSet)
 
 urlpatterns = [
     # previous login view
     # url(r'^login/$', views.user_login, name='login'), 
+    
+    # REST-API
+    url(r'^api/', include(router.urls)),
     
     url(r'^register/$', views.register, name='register'),
     url(r'^edit/$', views.edit, name='edit'),
