@@ -11,7 +11,7 @@ from rest_framework import viewsets
 
 from .forms import LoginForm, UserRegistrationForm, UserEditForm, ProfileEditForm
 from .models import Profile
-from .serializers import UserSerializer
+from .serializers import UserSerializer, ProfileSerializer
 
 def user_login(request):
     if request.method == 'POST':
@@ -86,3 +86,9 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     
+class ProfileViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer    
