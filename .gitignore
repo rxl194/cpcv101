@@ -3,3 +3,4 @@
 *.tar
 .git
 *.oauth.cfg
+cex/Django/django_by_examples/bookmarks/media/*
