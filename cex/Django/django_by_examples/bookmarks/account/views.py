@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
 
-from rest_framework import viewsets
+from rest_framework import viewsets, permissions
 
 from .forms import LoginForm, UserRegistrationForm, UserEditForm, ProfileEditForm
 from .models import Profile
@@ -85,6 +85,7 @@ class UserViewSet(viewsets.ModelViewSet):
     """
     queryset = User.objects.all()
     serializer_class = UserSerializer
+#    permission_classes = (permissions.IsAuthenticated)
     
 class ProfileViewSet(viewsets.ModelViewSet):
     """
