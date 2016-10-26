@@ -6,9 +6,15 @@ from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from common.decorators import ajax_required
 
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+
 from .forms import ImageCreateForm
 from .forms import ImageUploadForm
 from .models import Image
+
+from .serializers import ImageSerializer
 
 @login_required
 def image_create(request):
@@ -109,3 +115,22 @@ def image_list(request):
                   'images/image/list.html',
                    {'section': 'images', 'images': images})
     
+
+class ImageList(APIView):
+#    permission_classes = (permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly)
+    """
+    List all images, or create a new image.
+    """
+    def get(self, request, format=None):
+        images = Image.objects.all()
+        serializer = ImageSerializer(images, many=True, context={'request': request})
+        return Response(serializer.data)
+
+    def post(self, request, format=None):
+        serializer = ImageSerializer(data=request.data, context={'request': request})
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
