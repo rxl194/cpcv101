@@ -15,7 +15,7 @@ from .forms import ImageCreateForm
 from .forms import ImageUploadForm
 from .models import Image
 
-from .serializers import ImageSerializer
+from .serializers import ImageSerializer, ImageUrlSerializer
 
 @login_required
 def image_create(request):
@@ -134,4 +134,21 @@ class ImageList(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
+class ImageUrlList(APIView):
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+    """
+    List all images, or create a new image.
+    """
+    def get(self, request, format=None):
+        images = Image.objects.all()
+        serializer = ImageUrlSerializer(images, many=True, context={'request': request})
+        return Response(serializer.data)
+
+    def post(self, request, format=None):
+        serializer = ImageUrlSerializer(data=request.data, context={'request': request})
+        if serializer.is_valid():
+            serializer.save(user=self.request.user)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 

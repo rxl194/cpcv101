@@ -4,6 +4,7 @@ from . import views
 
 urlpatterns = [
     # REST-API
+    url(r'^api/url/$', views.ImageUrlList.as_view()),
     url(r'^api/$', views.ImageList.as_view()),
 
     url(r'^create/$', views.image_create, name='create'),
