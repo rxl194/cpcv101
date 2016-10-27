@@ -8,6 +8,7 @@ from common.decorators import ajax_required
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework import status
 
 from .forms import ImageCreateForm
@@ -117,7 +118,7 @@ def image_list(request):
     
 
 class ImageList(APIView):
-#    permission_classes = (permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
     """
     List all images, or create a new image.
     """
