@@ -11,5 +11,6 @@ class ImageUrlSerializer(serializers.HyperlinkedModelSerializer):
     user = serializers.ReadOnlyField(source='user.username')
     class Meta:
         model = Image
-        fields = ('user', 'url')        
+        fields = ('user', 'title', 'url')        
+
 

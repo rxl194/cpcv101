@@ -4,7 +4,10 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.utils.text import slugify
+
 from common.decorators import ajax_required
+import urllib 
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -148,7 +151,15 @@ class ImageUrlList(APIView):
     def post(self, request, format=None):
         serializer = ImageUrlSerializer(data=request.data, context={'request': request})
         if serializer.is_valid():
-            serializer.save(user=self.request.user)
+            image_url = serializer.validated_data['url']
+            image_name = '{}.{}'.format(slugify(serializer.validated_data['title']),
+                                    image_url.rsplit('.', 1)[1].lower())
+            # download image from the given URL
+#            response = urllib.request.urlopen(image_url)
+#            serializer.validated_data['image'].save(image_name,
+#                         ContentFile(response.read()),
+#                         save=False)
+            image = serializer.save(user=self.request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
