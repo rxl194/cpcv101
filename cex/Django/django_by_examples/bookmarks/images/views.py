@@ -1,3 +1,4 @@
+from django.core.files.base import ContentFile
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 from django.shortcuts import render, redirect, get_object_or_404
@@ -154,12 +155,12 @@ class ImageUrlList(APIView):
             image_url = serializer.validated_data['url']
             image_name = '{}.{}'.format(slugify(serializer.validated_data['title']),
                                     image_url.rsplit('.', 1)[1].lower())
-            # download image from the given URL
-#            response = urllib.request.urlopen(image_url)
-#            serializer.validated_data['image'].save(image_name,
-#                         ContentFile(response.read()),
-#                         save=False)
             image = serializer.save(user=self.request.user)
+
+            # download image from the given URL
+            response = urllib.request.urlopen(image_url)
+            image.image.save(image_name,
+                         ContentFile(response.read()))
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
