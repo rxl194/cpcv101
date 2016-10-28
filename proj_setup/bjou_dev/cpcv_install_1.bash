@@ -15,6 +15,7 @@ apt-get install -y libgtk2.0-dev libavcodec-dev libavformat-dev libswscale-dev l
 apt-get install -y libatlas-base-dev gfortran
 apt-get install -y python python-pip python-dev python-setuptools
 apt-get install -y python2.7 python2.7-dev
+apt-get install -y python3.5 python3.5-dev
 apt-get install -y autoconf automake libtool
 apt-get install -y libjpeg62-dev zlib1g-dev libicu-dev libpango1.0-dev libcairo2-dev
 
@@ -38,9 +39,9 @@ apt-get install -y libqt4-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev
 apt-get install -y libopencore-amrwb-dev libtheora-dev libvorbis-dev
 apt-get install -y libxvidcore-dev x264 v4l-utils qt5-default
 
-apt-get install -y wget libavfilter-dev libopenexr-dev libxine-dev  libtiff4-dev
+apt-get install -y wget libavfilter-dev libopenexr-dev libxine2-dev  libtiff5-dev
 
 # Install leptonica-1.71
-/bin/bash ../cpcv_dev/dkou-u14-2/build_leptonica-1.71.bash
-/bin/bash ../cpcv_dev/dkou-u14-2/build_tesseract.bash
+/bin/bash ../dkou_dev/dkou-u14-2/build_leptonica-1.71.bash
+/bin/bash ../dkou_dev/dkou-u14-2/build_tesseract.bash
 
