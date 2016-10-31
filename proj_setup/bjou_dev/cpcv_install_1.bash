@@ -26,6 +26,7 @@ apt-get install -y git-core curl libssl-dev libreadline-dev
 apt-get install -y libyaml-dev libsqlite3-dev libxml2-dev libxslt1-dev 
 apt-get install -y libcurl4-openssl-dev python-software-properties
 apt-get install -y python-numpy python-scipy python-matplotlib
+apt-get install -y python3-numpy python3-scipy python3-matplotlib
 apt-get install -y ipython ipython-notebook python-pandas python-sympy python-nose
 apt-get install -y  libatlas-dev libatlas3gf-base
 pip install -U scikit-learn
