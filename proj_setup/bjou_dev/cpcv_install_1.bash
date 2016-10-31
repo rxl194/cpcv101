@@ -17,6 +17,7 @@ apt-get install -y python python-pip python-dev python-setuptools
 apt-get install -y python2.7 python2.7-dev
 apt-get install -y python3.5 python3.5-dev
 apt-get install -y autoconf automake libtool
+apt-get install -y autotools-dev autoconf
 apt-get install -y libjpeg62-dev zlib1g-dev libicu-dev libpango1.0-dev libcairo2-dev
 
 apt-get update -y &&  apt-get -y upgrade
