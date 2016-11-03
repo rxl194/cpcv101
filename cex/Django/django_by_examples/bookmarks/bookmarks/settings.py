@@ -43,6 +43,7 @@ REST_FRAMEWORK = {
 INSTALLED_APPS = (
     'account',
     'images',    
+    'actions',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -118,6 +119,12 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+from django.core.urlresolvers import reverse_lazy
+
+ABSOLUTE_URL_OVERRIDES = {
+    'auth.user': lambda u: reverse_lazy('user_detail', args=[u.username])
+}
 
 AUTHENTICATION_BACKENDS = (
     'social.backends.facebook.Facebook2OAuth2',
