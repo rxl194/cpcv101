@@ -107,7 +107,6 @@ class ProfileViewSet(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer    
 
-
 @login_required
 def user_list(request):
     users = User.objects.filter(is_active=True)
@@ -121,6 +120,7 @@ def user_detail(request, username):
     return render(request, 'account/user/detail.html', {'section': 'people',
                                                         'user': user})
 
+
 @ajax_required
 @require_POST
 @login_required
@@ -133,7 +133,7 @@ def user_follow(request):
             if action == 'follow':
                 Contact.objects.get_or_create(user_from=request.user,
                                               user_to=user)
-                create_action(request.user, 'is following', user)
+#                create_action(request.user, 'is following', user)
             else:
                 Contact.objects.filter(user_from=request.user,
                                        user_to=user).delete()
