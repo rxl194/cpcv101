@@ -1,6 +1,6 @@
 Django==1.8.5
 Pillow==2.9.0
-celery==3.1.18
+#celery==3.1.18
 #python-social-auth==0.2.12
 #sorl-thumbnail==12.3
 #djangorestframework==3.5.1
