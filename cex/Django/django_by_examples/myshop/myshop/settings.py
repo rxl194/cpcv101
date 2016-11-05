@@ -30,6 +30,11 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+# django-paypal settings
+# PAYPAL_RECEIVER_EMAIL = 'mypaypalemail@myshop.com'
+PAYPAL_RECEIVER_EMAIL = 'order_test@happyorderus.com'
+PAYPAL_TEST = True
+
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,9 +42,11 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'paypal.standard.ipn',
     'shop',
     'cart',
     'orders',
+    'payment',
 )
 
 MIDDLEWARE_CLASSES = (

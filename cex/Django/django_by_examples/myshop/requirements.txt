@@ -1,5 +1,7 @@
 Django==1.8.5
 Pillow==2.9.0
+django-paypal==0.2.5
+pytz
 #celery==3.1.18
 #python-social-auth==0.2.12
 #sorl-thumbnail==12.3
