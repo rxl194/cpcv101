@@ -25,6 +25,8 @@ class OwnerEditMixin(object):
 
 class OwnerCourseMixin(OwnerMixin, LoginRequiredMixin):
     model = Course
+    fields = ['subject', 'title', 'slug', 'overview']
+    success_url = reverse_lazy('manage_course_list')
 
 
 class OwnerCourseEditMixin(OwnerCourseMixin, OwnerEditMixin):
@@ -46,14 +48,15 @@ class CourseCreateView(PermissionRequiredMixin,
 class CourseUpdateView(PermissionRequiredMixin,
                        OwnerCourseEditMixin,
                        UpdateView):
+    template_name = 'courses/manage/course/form.html'
     permission_required = 'courses.change_course'
 
 
 class CourseDeleteView(PermissionRequiredMixin,
                        OwnerCourseMixin,
                        DeleteView):
-    success_url = reverse_lazy('manage_course_list')
     template_name = 'courses/manage/course/delete.html'
+    success_url = reverse_lazy('manage_course_list')
     permission_required = 'courses.delete_course'
 
 
@@ -101,11 +104,11 @@ class ContentCreateUpdateView(TemplateResponseMixin, View):
 
     def dispatch(self, request, module_id, model_name, id=None):
 #        import pdb; pdb.set_trace()
-#        self.module = get_object_or_404(Module,
-#                                        id=module_id,
-#                                        course__owner=request.user)
         self.module = get_object_or_404(Module,
-                                        id=module_id)
+                                        id=module_id,
+                                        course__owner=request.user)
+#        self.module = get_object_or_404(Module,
+#                                        id=module_id)
         self.model = self.get_model(model_name)
         if id:
             self.obj = get_object_or_404(self.model,
