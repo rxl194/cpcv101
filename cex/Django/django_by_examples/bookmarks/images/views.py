@@ -10,7 +10,7 @@ from django.utils.text import slugify
 from common.decorators import ajax_required
 from actions.utils import create_action
 
-import redis
+#import redis
 from django.conf import settings
 
 import urllib 
@@ -26,9 +26,9 @@ from .models import Image
 
 from .serializers import ImageSerializer, ImageUrlSerializer
 
-r = redis.StrictRedis(host=settings.REDIS_HOST,
-                      port=settings.REDIS_PORT,
-                      db=settings.REDIS_DB)
+#r = redis.StrictRedis(host=settings.REDIS_HOST,
+#                      port=settings.REDIS_PORT,
+#                      db=settings.REDIS_DB)
 
 
 @login_required
@@ -87,9 +87,10 @@ def image_upload(request):
 def image_detail(request, id, slug):
     image = get_object_or_404(Image, id=id, slug=slug)
     # increment total image views by 1
-    total_views = r.incr('image:{}:views'.format(image.id))
+    total_views = 0
+    # total_views = r.incr('image:{}:views'.format(image.id))
     # increment image ranking by 1
-    r.zincrby('image_ranking', image.id, 1)
+    # r.zincrby('image_ranking', image.id, 1)
     return render(request,
                   'images/image/detail.html',
                   {'section': 'images',
