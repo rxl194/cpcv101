@@ -9,5 +9,5 @@ python3-memcached==1.51
 #celery==3.1.18
 #python-social-auth==0.2.12
 #sorl-thumbnail==12.3
-#djangorestframework==3.5.1
+djangorestframework==3.5.1
 #redis==2.10.3
