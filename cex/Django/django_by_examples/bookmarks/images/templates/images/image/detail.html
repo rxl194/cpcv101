@@ -3,7 +3,8 @@
 {% block title %}{{ image.title }}{% endblock %}
 
 {% block content %}
-    <h1>{{ image.title }}</h1>
+  <h1>{{ image.title }}</h1>
+  <div>
     {% load thumbnail %}
     {% thumbnail image.image "300" as im %}
         <a href="{{ image.image.url }}">
@@ -43,9 +44,17 @@
             {% endfor %}
         </div>
     {% endwith %}
+  </div>
+  <div>
+     <input type="button" value="Face Detection" data-id="{{ image.id }}" class="CVFaceDetBtn">
+  </div>
 {% endblock %}
 
 {% block domready %}
+    $('input.CVFaceDetBtn').click(function(e){
+        e.preventDefault();
+        alert('CVFaceDetBtn!');
+    });
     $('a.like').click(function(e){
         e.preventDefault();
         $.post('{% url "images:like" %}',
