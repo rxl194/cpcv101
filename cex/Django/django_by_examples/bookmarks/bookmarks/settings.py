@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'account',
     'images',    
     'actions',
+    'cvfacedet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

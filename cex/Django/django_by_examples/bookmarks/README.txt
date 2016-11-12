@@ -25,6 +25,10 @@ $ conda create --name <new_env> --clone <existing_env>
 $ conda env export > environment.yml
 $ conda env create -f environment.yml
 
+/******************
+** DEVELOPE:
+******************/
+$ python manage.py startapp <app_name>
 
 
 /******************
