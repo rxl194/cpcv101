@@ -13,6 +13,8 @@ export PATH="~/anaconda3/bin:$PATH"
 ** ENV SETUP
 ******************/
 $ conda env create -f django_env_20161110.yml 
+#$ cd ocv/ubuntu
+$ cp ./lib/python3/cv2.cpython-35m-x86_64-linux-gnu.so ~/anaconda3/envs/django_env/lib/python3.5/site-packages
 
 /******************
 ** ENV ADMIN
