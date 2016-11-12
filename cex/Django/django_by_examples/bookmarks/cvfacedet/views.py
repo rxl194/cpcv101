@@ -10,7 +10,6 @@ def cvfacedet_create(request, orig_id):
     if request.method == 'POST':
         # form is sent
         form = CVFaceDetCreateForm(data=request.POST)
-        import pdb; pdb.set_trace()
         if form.is_valid():
             # form data is valid
             new_item = form.save(commit=False, orig_image=image)

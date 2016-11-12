@@ -1,7 +1,9 @@
 from urllib import request
+from django.core.files import File
 from django.core.files.base import ContentFile
 from django.utils.text import slugify
 from django import forms
+from django.conf import settings
 from .models import CVFaceDet
 
 import os
@@ -26,25 +28,30 @@ class CVFaceDetCreateForm(forms.ModelForm):
         cvfacedet = super(CVFaceDetCreateForm, self).save(commit=False)
         cvfacedet.orig = orig_image
         image_path = orig_image.image.path
-        image_name = 'CVFaceDet: {}'.format(slugify(orig_image.title))
-
-        import pdb; pdb.set_trace()
+        image_name = 'CVFaceDet_{}'.format(slugify(orig_image.title))
 
         # load the image from path
         cv2img = cv2.imread(image_path)
-        cv2img = cv2.cvtColor(cv2img, cv2.COLOR_BGR2GRAY)
+        cv2gray = cv2.cvtColor(cv2img, cv2.COLOR_BGR2GRAY)
         face_cascade = cv2.CascadeClassifier(FACE_DETECTOR_PATH)
-        faces = face_cascade.detectMultiScale(cv2img, scaleFactor=1.1, minNeighbors=5,
-          minSize=(30, 30), flags=0)
+        faceRects = face_cascade.detectMultiScale(cv2gray, scaleFactor=1.1, minNeighbors=5,
+          minSize=(30, 30))
 
         # construct a list of bounding boxes from the detection
-        num_faces = len(faces)
+        num_faces = len(faceRects)
+        # loop over the faces and draw a rectangle around each
+        for (x, y, w, h) in faceRects:
+            cv2.rectangle(cv2img, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
+        import pdb; pdb.set_trace()
 
-        # download image from the given URL
-        response = request.urlopen(image_url)
+        full_path = settings.MEDIA_ROOT + "cvtmp/" + image_name + ".png"
+        cv2.imwrite(full_path, cv2img)
+        cv_f = open(full_path,"rb")
+
+        # save the tmp file to its locations
         cvfacedet.image.save(image_name,
-                         ContentFile(response.read()),
+                         File(cv_f),
                          save=False)
 
         if commit:
