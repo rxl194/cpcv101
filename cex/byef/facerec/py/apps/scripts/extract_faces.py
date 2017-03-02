@@ -18,6 +18,8 @@ def extract_faces(src_dir, dst_dir, detector, face_sz = (130,130)):
 	Extracts the faces from all images in a given src_dir and writes the extracted faces
 	to dst_dir. Needs a facedet.Detector object to perform the actual detection.
 	
+	Usage: 
+		python extract_faces.py \tst\ \data\at
 	Args:
 		src_dir [string] 
 		dst_dir [string] 
