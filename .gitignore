@@ -4,3 +4,5 @@
 .git
 *.oauth.cfg
 cex/Django/django_by_examples/bookmarks/media/*
+cex/byef/facerec/tst/*
+cex/byef/facerec/data/at/*
