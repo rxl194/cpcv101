@@ -2,3 +2,16 @@
 // Install mahotas at Anaconda-Win 
 $ anaconda search -t conda mahotas 
 $ conda install -c conda-forge mahotas=1.4.1
+
+// #
+$ cp /usr/local/lib/python2.7/dist-packages/ocv2.4.13.cv2.so .
+$ cp /usr/local/lib/python2.7/dist-packages/ocv3.1.cv2.so  .
+$ cp /usr/local/lib/python2.7/dist-packages/ocv2.4.13.cv2.so cv2.so
+
+
+// # import cv2 error:
+// # libstdc++.so.6
+$ cd ~/anaconda2/lib
+$ ls -lrtd *stdc*
+$ mv libstdc++.so.6 libstdc++.so.6.orig
+
