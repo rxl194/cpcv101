@@ -6,6 +6,7 @@
 # $ mv google-cloud-sdk ~
 # $ ~/google-cloud-sdk/install.sh
 
+# // options: --no-launch-browser
 # $ gcloud init
 # $ gcloud auth login
 # $ gcloud auth application-default login
