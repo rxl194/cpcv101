@@ -15,7 +15,8 @@ sudo make clean
 
 cd /usr/local/share/tessdata
 #wget https://storage.googleapis.com/fp.yelpista.com/gae-persist/tessdata.eng.chi.tar
-cp /mnt/gcs-bucket/gae-persist/tessdata.eng.chi.tar /tmp
+#cp /mnt/gcs-bucket/gae-persist/tessdata.eng.chi.tar /tmp
+cp ~/Downloads/tessdata.eng.chi.tar /tmp
 sudo tar -xvf /tmp/tessdata.eng.chi.tar
 rm /tmp/tessdata.eng.chi.tar
 cd
